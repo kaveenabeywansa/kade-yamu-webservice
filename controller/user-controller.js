@@ -4,7 +4,7 @@ const UserSchema = mongoose.model('User');
 var Controller = function () {
     // adding new new to the system
     this.addUser = function (data) {
-        return new Promise(function (resolve, reject) {
+        return new Promise(async function (resolve, reject) {
             // defines the new user
             var User = UserSchema({
                 name: data.name,
