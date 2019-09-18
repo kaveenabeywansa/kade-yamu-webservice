@@ -11,7 +11,7 @@ var Controller = function () {
                 username: data.username,
                 password: data.password,
                 phone: data.phone,
-                usertype: data.usertype
+                usertype: data.usertype,
             });
 
             // check if the selected username already exist
@@ -24,7 +24,6 @@ var Controller = function () {
 
             // continue user creation if no issues
             User.save().then(function () {
-                Stat.save();
                 resolve({ status: 200, message: "User Created Successfully !" });
             }).catch(function (reason) {
                 reject({ status: 404, message: "Error: " + reason });
