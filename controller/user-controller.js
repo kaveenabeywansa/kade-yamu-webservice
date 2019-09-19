@@ -12,8 +12,7 @@ var Controller = function () {
                 username: data.username,
                 password: data.password,
                 phone: data.phone,
-                usertype: data.usertype,
-                associates: data.associates,
+                usertype: data.usertype, // buyer or seller
             });
 
             // check if the selected username already exist
