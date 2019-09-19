@@ -84,7 +84,7 @@ var Controller = function () {
         return new Promise(function (resolve, reject) {
             UserSchema.findOne({ username: data.username }).exec().then(function (value) {
                 if (value.password == data.password) {
-                    var logObj = { status: true, userType: value.usertype, userName: value.name };
+                    var logObj = { status: true, userType: value.usertype, userName: value.name, userPhone: value.phone };
                     resolve({ status: 200, message: "Welcome " + value.name, logged: logObj });
                 } else {
                     reject({ status: 401, message: "Incorrect Password !", logged: { status: false } });
