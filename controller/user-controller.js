@@ -4,7 +4,7 @@ const UserSchema = mongoose.model('User');
 var Controller = function () {
     // adding new new to the system
     this.addUser = function (data) {
-        return new Promise(async function (resolve, reject) {
+        return new Promise(function (resolve, reject) {
             // defines the new user
             var User = UserSchema({
                 name: data.name,
@@ -12,15 +12,15 @@ var Controller = function () {
                 password: data.password,
                 phone: data.phone,
                 usertype: data.usertype,
-            });
+            })
 
             // check if the selected username already exist
-            var value = await UserSchema.findOne({ username: data.username });
-            if (value) {
-                // username already exists... cancel user creation
-                reject({ status: 409, message: "Username already exists !" });
-                return;
-            }
+            // var value = await UserSchema.findOne({ username: data.username });
+            // if (value) {
+            //     // username already exists... cancel user creation
+            //     reject({ status: 409, message: "Username already exists !" });
+            //     return;
+            // }
 
             // continue user creation if no issues
             User.save().then(function () {
