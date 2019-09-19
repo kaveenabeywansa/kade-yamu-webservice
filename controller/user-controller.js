@@ -28,7 +28,7 @@ var Controller = function () {
             }).catch(function (reason) {
                 reject({ status: 404, message: "Error: " + reason });
             })
-        });
+        })
     };
     // get a list of all the registered users
     this.getUsers = function () {
